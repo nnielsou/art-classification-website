@@ -56,7 +56,7 @@ with col1:
         "Symbolism": "A late 19th-century movement using symbolic imagery and metaphors to express spiritual, emotional, and mystical ideas. Dreamlike and poetic in nature."
     }
     # Create an expander for each art movement
-    for movement, description in art_movements.items():
+    for movement, description in art_movements.keys():
         with st.expander(movement):
             st.write(description)
 
