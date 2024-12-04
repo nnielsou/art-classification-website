@@ -1,5 +1,8 @@
 import streamlit as st
 import pandas as pd
+import requests
+from PIL import Image
+from io import BytesIO
 
 
 #Art Classification front
@@ -19,7 +22,7 @@ if img_data is not None:
     # Display the uploaded image
     st.image(img, caption="Uploaded Image", use_container_width=True)
     # Example API request to upload the image
-    endpoint = "https://example.com/api"  # Replace with actual endpoint
+    endpoint = "https://artmovement-174222773308.europe-west1.run.app/"
     response = requests.post(f"{endpoint}/upload", files={"file": img_byte_arr})
     if response.status_code == 200:
         st.success("Image uploaded successfully!")
