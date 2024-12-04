@@ -12,22 +12,63 @@ st.title("Explore Art Movements & Upload Images")
 
 # Column 1: Image upload functionality
 #with col1:
+
+# st.header("Upload Your Image")
+# img_data = st.file_uploader("Upload Image", type=['png', 'jpg'])
+# if img_data is not None:
+#     # Get the byte data of the image
+#     img_byte_arr = img_data.getvalue()
+#     # Open the image for display
+#     img = Image.open(BytesIO(img_byte_arr))
+#     # Display the uploaded image
+#     st.image(img, caption="Uploaded Image", use_container_width=True)
+#     # Example API request to upload the image
+#     endpoint = "https://artmovement-174222773308.europe-west1.run.app/"
+#     response = requests.post(f"{endpoint}/upload", files={"file": img_byte_arr})
+#     response_get = requests.get()
+#     if response.status_code == 200:
+#         st.success("Image uploaded successfully!")
+#     else:
+#         st.error("Failed to upload image.")
+
+
+# Header
 st.header("Upload Your Image")
+
+# File uploader
 img_data = st.file_uploader("Upload Image", type=['png', 'jpg'])
+
 if img_data is not None:
     # Get the byte data of the image
     img_byte_arr = img_data.getvalue()
+
     # Open the image for display
     img = Image.open(BytesIO(img_byte_arr))
+
     # Display the uploaded image
     st.image(img, caption="Uploaded Image", use_container_width=True)
-    # Example API request to upload the image
-    endpoint = "https://artmovement-174222773308.europe-west1.run.app/"
-    response = requests.post(f"{endpoint}/upload", files={"file": img_byte_arr})
-    if response.status_code == 200:
+
+    # Define the API endpoint
+    endpoint = "https://artmovement-174222773308.europe-west1.run.app"
+
+    # Step 1: Upload the image via the API
+    upload_response = requests.post(f"{endpoint}/upload", files={"file": img_byte_arr})
+
+    if upload_response.status_code == 200:
         st.success("Image uploaded successfully!")
+
+        # Step 2: Get the prediction from the API
+        predict_response = requests.get(f"{endpoint}/predict")
+
+        if predict_response.status_code == 200:
+            # Extract prediction from response
+            prediction = predict_response.text
+            st.write(f"**Predicted Art Movement:** {prediction}")
+        else:
+            st.error("Failed to get a prediction from the API.")
     else:
-        st.error("Failed to upload image.")
+        st.error("Failed to upload the image.")
+
 col1, col2 = st.columns(2)
 # Column 2: Art movement descriptions
 with col1:
