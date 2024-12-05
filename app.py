@@ -100,10 +100,10 @@ with col1:
         "Symbolism": "A late 19th-century movement using symbolic imagery and metaphors to express spiritual, emotional, and mystical ideas. Dreamlike and poetic in nature."
     }
 
-with st.button('Predict !'):
-        # Step 2: Get the prediction from the API
-    predict_response = requests.get(f"{endpoint}/predict")
+# Step 2: Get the prediction from the API
+predict_response = requests.get(f"{endpoint}/predict")
 
+if st.button('Predict !'):
     if predict_response.status_code == 200:
         # Extract prediction from response
         prediction = predict_response.text
@@ -113,8 +113,8 @@ with st.button('Predict !'):
 
 
     # Create an expander for each art movement
-    resultat = st.selectbox('You selected',art_movements.keys())
-    st.write(art_movements[resultat])
+resultat = st.selectbox('You selected',art_movements.keys())
+st.write(art_movements[resultat])
 
 
 
