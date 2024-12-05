@@ -100,9 +100,8 @@ with col1:
         "Symbolism": "A late 19th-century movement using symbolic imagery and metaphors to express spiritual, emotional, and mystical ideas. Dreamlike and poetic in nature."
     }
     # Create an expander for each art movement
-    for movement, description in art_movements.keys():
-        with st.expander(movement):
-            st.write(description)
+    resultat = st.selectbox('You selected',art_movements.keys())
+    st.write(art_movements[resultat])
 
 
 # Add some custom CSS for enhanced design
