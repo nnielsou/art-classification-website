@@ -99,12 +99,16 @@ with col1:
         "Realism": "A mid-19th-century movement depicting life as it truly is, without romanticizing or idealizing. Focused on everyday scenes and ordinary people.",
         "Symbolism": "A late 19th-century movement using symbolic imagery and metaphors to express spiritual, emotional, and mystical ideas. Dreamlike and poetic in nature."
     }
+
+with st.button('Predict !'):
+    pass
+
+
     # Create an expander for each art movement
     resultat = st.selectbox('You selected',art_movements.keys())
     st.write(art_movements[resultat])
 
-with st.button('Predict !'):
-    pass
+
 
 
 # Add some custom CSS for enhanced design
