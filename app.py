@@ -119,44 +119,26 @@ with st.button('Predict !'):
 
 
 
-# Add some custom CSS for enhanced design
-st.markdown(
-    """
-    <style>
-    .stImage img {
-        border: none;  /* Remove border */
-        border-radius: 15px;  /* Optional: add rounded corners if desired */
-        box-shadow: none;  /* Remove shadow */
-        padding: 0;  /* No padding around the image */
-        transition: transform 0.3s ease-in-out;  /* Smooth zoom effect */
-    }
-    .stImage img:hover {
-        transform: scale(1.05);  /* Slight zoom effect on hover */
-    }
-    /* Custom padding for the columns */
-    .stColumns .css-1l02z5t {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
-
-
-#API CALL
-#url = #API URL
-
-# if url == 'https://taxifare.lewagon.ai/predict':
-
-#     st.markdown('Maybe you want to use your own API for the prediction, not the one provided by Le Wagon...')
-
-
-# 2. Let's build a dictionary containing the parameters for our API...
-
-# 3. Let's call our API using the `requests` package...
-
-# 4. Let's retrieve the prediction from the **JSON** returned by the API...
-
-# ## Finally, we can display the prediction to the user
+# # Add some custom CSS for enhanced design
+# st.markdown(
+#     """
+#     <style>
+#     .stImage img {
+#         border: none;  /* Remove border */
+#         border-radius: 15px;  /* Optional: add rounded corners if desired */
+#         box-shadow: none;  /* Remove shadow */
+#         padding: 0;  /* No padding around the image */
+#         transition: transform 0.3s ease-in-out;  /* Smooth zoom effect */
+#     }
+#     .stImage img:hover {
+#         transform: scale(1.05);  /* Slight zoom effect on hover */
+#     }
+#     /* Custom padding for the columns */
+#     .stColumns .css-1l02z5t {
+#         padding-left: 20px;
+#         padding-right: 20px;
+#     }
+#     </style>
+#     """,
+#     unsafe_allow_html=True
+# )
