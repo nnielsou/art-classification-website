@@ -103,6 +103,9 @@ with col1:
     resultat = st.selectbox('You selected',art_movements.keys())
     st.write(art_movements[resultat])
 
+with st.button('Predict !'):
+    pass
+
 
 # Add some custom CSS for enhanced design
 st.markdown(
