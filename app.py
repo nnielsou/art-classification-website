@@ -57,15 +57,15 @@ if img_data is not None:
     if upload_response.status_code == 200:
         st.success("Image uploaded successfully!")
 
-        # Step 2: Get the prediction from the API
-        predict_response = requests.get(f"{endpoint}/predict")
+    #     # Step 2: Get the prediction from the API
+    #     predict_response = requests.get(f"{endpoint}/predict")
 
-        if predict_response.status_code == 200:
-            # Extract prediction from response
-            prediction = predict_response.text
-            st.write(f"**Predicted Art Movement:** {prediction}")
-        else:
-            st.error("Failed to get a prediction from the API.")
+    #     if predict_response.status_code == 200:
+    #         # Extract prediction from response
+    #         prediction = predict_response.text
+    #         st.write(f"**Predicted Art Movement:** {prediction}")
+    #     else:
+    #         st.error("Failed to get a prediction from the API.")
     else:
         st.error("Failed to upload the image.")
 
@@ -101,7 +101,15 @@ with col1:
     }
 
 with st.button('Predict !'):
-    pass
+        # Step 2: Get the prediction from the API
+    predict_response = requests.get(f"{endpoint}/predict")
+
+    if predict_response.status_code == 200:
+        # Extract prediction from response
+        prediction = predict_response.text
+        st.write(f"**Predicted Art Movement:** {prediction}")
+    else:
+        st.error("Failed to get a prediction from the API.")
 
 
     # Create an expander for each art movement
