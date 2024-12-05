@@ -101,9 +101,10 @@ with col1:
     }
 
 
-predict_response = requests.get(f"{endpoint}/predict")
+
 
 if st.button('Predict !'):
+    predict_response = requests.get(f"{endpoint}/predict")
     if predict_response.status_code == 200:
         # Extract prediction from response
         prediction = predict_response.text
